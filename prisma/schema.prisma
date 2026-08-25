@@ -1,0 +1,62 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+// generator client {
+//   provider = "prisma-client"
+//   output   = "../src/generated/prisma"
+// }
+
+datasource db {
+  provider  = "postgresql"
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+enum PlanTier {
+  FREE
+  PRO
+  ENTERPRISE
+}
+
+enum Sentiment {
+  POSITIVE
+  NEUTRAL
+  NEGATIVE
+  URGENT
+}
+
+enum Category {
+  BILLING
+  BUG
+  FEATURE_REQUEST
+  OUTAGE
+}
+
+model Ticket {
+  // id           String    @id @default(uuid())
+  id           String    @id @default(dbgenerated("gen_random_uuid()"))
+  customerId   String
+  ticketBody   String
+  planTier     PlanTier  @default(FREE)
+  isPriority   Boolean   @default(false)
+  createdAt    DateTime  @default(now())
+
+  analysis     Analysis?
+}
+
+model Analysis {
+  id           String    @id @default(uuid())
+  ticketId     String    @unique
+  ticket       Ticket    @relation(fields: [ticketId], references: [id], onDelete: Cascade)
+  
+  sentiment    Sentiment
+  category     Category
+  urgencyScore Int
+  summary      String
+  processedAt  DateTime  @default(now())
+}
