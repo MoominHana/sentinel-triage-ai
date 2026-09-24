@@ -1,6 +1,8 @@
 ![Spec Badge](https://img.shields.io/badge/Project_Spec-No._01_Triage_Engine-purple?style=for-the-badge)
+![Version](https://img.shields.io/badge/version-1.0-blue?style=for-the-badge)
 # Sentinel AI — Real-Time Customer Triage Engine
-An automated, LLM-powered support ticket classification and triage system built for high-volume SaaS applications. Sentinel ingests raw customer tickets, enforces structured JSON schema analysis via LLM tool-calling, and flags churn risk and urgent enterprise tickets in real-time.
+
+Version 1.0 delivers a focused AI triage workflow for support teams: it ingests customer tickets, classifies urgency and sentiment with structured LLM analysis, stores the results in a lightweight ticket pipeline, and surfaces priority items for faster response handling. The current project includes ticket intake, validation, automated triage rules, and a dashboard view for reviewing queued issues.
 
 ## Core Features
 * **Structured Sentiment & Urgency Analysis:** Extracts categorizations, sentiment, and urgency scores ($1-10$) using strict schema validation.
