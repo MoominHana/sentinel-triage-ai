@@ -98,7 +98,7 @@ export default function Dashboard() {
             </p>
             <h1 className="text-3xl font-semibold tracking-tight">Support queue</h1>
             <p className="mt-2 text-sm text-slate-500">
-              <p className="font-medium text-red-600">THE FOLLOWING ARE TESTING TICKETS ONLY FOR DEV PURPOSES.</p>
+              THE FOLLOWING ARE TESTING TICKETS ONLY FOR DEV PURPOSES.
               Review incoming tickets and their automated analysis.
             </p>
           </div>
